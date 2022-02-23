@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
+import './Styles.css';
 
 class App extends React.Component {
   render() {
