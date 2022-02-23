@@ -5,7 +5,7 @@ class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.props;
     const { cardImage, cardRare, cardTrunfo } = this.props;
-    const { hasTrunfo, isSaveButtonDisabled } = this.props;
+    const { /* hasTrunfo , */ isSaveButtonDisabled } = this.props;
     const { onInputChange, onSaveButtonClick } = this.props;
     return (
       <section className="addCard">
@@ -127,7 +127,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
