@@ -4,7 +4,8 @@ class Form extends Component {
   render() {
     return (
       <section className="addCard">
-        <form>
+        <form className="formsCard">
+          <h1>Adicionar Carta</h1>
           <label htmlFor="nameInput">
             Nome:
             <input type="text" id="nameInput" data-testid="name-input" />
@@ -37,7 +38,8 @@ class Form extends Component {
             </select>
           </label>
           <label htmlFor="trunfoInput">
-            <input type="checkbox" data-testid="trunfo-input" />
+            <input type="checkbox" id="trunfoInput" data-testid="trunfo-input" />
+            Super Trybe Trunfo
           </label>
           <button type="submit" data-testid="save-button">Salvar</button>
         </form>
