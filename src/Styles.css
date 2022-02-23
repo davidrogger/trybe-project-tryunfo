@@ -14,5 +14,25 @@
 }
 
 .addCard {
+  background-color: rgb(196, 243, 192);
+  width: 50%;
+}
+
+.cardCreation {
+  display: flex;
+}
+
+.previewCard {
+  align-items: center;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.attriContainer {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
   width: 50%;
 }
