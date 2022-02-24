@@ -22,6 +22,7 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardTrunfo: false,
+      hasTrunfo: false,
       isSaveButtonDisabled: true,
       savedCards: [],
     };
@@ -111,6 +112,7 @@ class App extends React.Component {
       cardRare, cardImage,
       cardAttr1, cardAttr2,
       cardAttr3,
+      cardTrunfo,
     } = this.state;
 
     const card = {
@@ -125,6 +127,7 @@ class App extends React.Component {
 
     this.setState((prevState) => ({
       savedCards: [card, ...prevState.savedCards],
+      hasTrunfo: cardTrunfo,
     }));
 
     this.resetState();
@@ -133,7 +136,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription } = this.state;
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
-    const { cardImage, cardRare, cardTrunfo } = this.state;
+    const { cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
     const { isSaveButtonDisabled } = this.state;
 
     return (
@@ -147,6 +150,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
           onInputChange={ this.stateUpdate }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.saveCard }
