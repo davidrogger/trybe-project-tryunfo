@@ -9,32 +9,83 @@ class App extends React.Component {
 
     this.stateUpdate = this.stateUpdate.bind(this);
     this.saveCard = this.saveCard.bind(this);
-    this.numberTest = this.numberTest.bind(this);
+    this.fieldValidation = this.textValidation.bind(this);
+    this.positionTrack = this.textPositionTrack.bind(this);
 
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 2,
-      cardAttr2: 0,
-      cardAttr3: 0,
       cardImage: '',
       cardRare: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
       cardTrunfo: false,
-      allFilled: false,
+      isSaveButtonDisabled: true,
     };
   }
 
-  numberTest(value) {
-    if (typeof value === 'boolean') return value;
-    const number = Number(value);
-    return Number.isNaN(number) ? value : number;
+  textPositionTrack(name) {
+    const noMagicNumber = 3;
+    if (name === 'cardName') return 0;
+    if (name === 'cardDescription') return 1;
+    if (name === 'cardImage') return 2;
+    if (name === 'cardRare') return noMagicNumber;
+  }
+
+  numberPosition(name) {
+    if (name === 'cardAttr1') return 0;
+    if (name === 'cardAttr2') return 1;
+    if (name === 'cardAttr3') return 2;
+  }
+
+  numberValidation(currentName, currentValue) {
+    const positionNumber = this.numberPosition(currentName);
+    const values = Object.values(this.state)
+      .filter((keyValue) => typeof keyValue === 'number');
+    if (typeof currentValue === 'number') {
+      values[positionNumber] = currentValue;
+    }
+    const maxNumber = 90;
+    const minNumber = 0;
+    const maxSum = 210;
+
+    const minMaxNumberTest = values
+      .every((value) => value >= minNumber && value <= maxNumber);
+
+    const sumNumber = values.reduce((sum, number) => sum + number, 0);
+    return minMaxNumberTest && sumNumber <= maxSum;
+  }
+
+  textValidation(currentName, currentValue) {
+    const numberOfValues = 4;
+    const positionField = this.textPositionTrack(currentName);
+
+    const values = Object.values(this.state)
+      .filter((_keyValue, index) => index < numberOfValues);
+
+    if (typeof currentValue === 'string') {
+      values[positionField] = currentValue;
+    }
+
+    return values.every((value) => value.length > 0);
+  }
+
+  finalValidation(currentName, currentValue) {
+    const numberTest = this.numberValidation(currentName, currentValue);
+    const textTest = this.textValidation(currentName, currentValue);
+    return !(numberTest && textTest);
   }
 
   stateUpdate({ target }) {
     const { name } = target;
-    const newValue = target.type === 'checkbox' ? target.checked : target.value;
+    let newValue = target.type === 'checkbox' ? target.checked : target.value;
+    if (name === 'cardAttr1' || name === 'cardAttr2' || name === 'cardAttr3') {
+      newValue = Number(newValue);
+    }
     this.setState({
-      [name]: this.numberTest(newValue),
+      [name]: newValue,
+      isSaveButtonDisabled: this.finalValidation(name, newValue),
     });
   }
 
@@ -46,7 +97,7 @@ class App extends React.Component {
     const { cardName, cardDescription } = this.state;
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const { cardImage, cardRare, cardTrunfo } = this.state;
-    const { allFilled } = this.state;
+    const { isSaveButtonDisabled } = this.state;
 
     return (
       <div className="cardCreation">
@@ -60,7 +111,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.stateUpdate }
-          isSaveButtonDisabled={ allFilled }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.saveCard }
         />
 

@@ -36,3 +36,7 @@
   flex-direction: column;
   width: 50%;
 }
+
+textarea {
+  resize: none;
+}

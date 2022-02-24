@@ -27,7 +27,7 @@ class Form extends Component {
 
           <label htmlFor="descripInput">
             Descrição:
-            <input
+            <textarea
               type="areatext"
               id="descripInput"
               data-testid="description-input"
@@ -93,6 +93,7 @@ class Form extends Component {
               onChange={ onInputChange }
               name="cardRare"
             >
+              <option value="" disabled>Escolha uma Raridade</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
