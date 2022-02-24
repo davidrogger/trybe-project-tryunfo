@@ -46,9 +46,7 @@ class App extends React.Component {
   stateUpdate({ target }) {
     const { name } = target;
     const newValue = target.type === 'checkbox' ? target.checked : target.value;
-    // if (name === 'cardAttr1' || name === 'cardAttr2' || name === 'cardAttr3') {
-    //   newValue = Number(newValue);
-    // }
+
     this.setState({
       [name]: newValue,
     }, () => {
@@ -56,7 +54,6 @@ class App extends React.Component {
         cardAttr1, cardAttr2, cardAttr3 } = this.state;
       const textResult = this.textValidation([cardName, cardDescription, cardImage]);
       const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
-      console.log(numberResult);
 
       this.setState({
         isSaveButtonDisabled: !(textResult && numberResult),
@@ -70,9 +67,9 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
     });
   }
 
@@ -85,7 +82,6 @@ class App extends React.Component {
     // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo, gero um número aleatório, converto para hexa, e elimino os 2 primeiros dígitos, que seriam 0 e o .
     const hexa = 16;
     const newId = Math.random().toString(hexa).slice(2);
-    const excludeButton = true;
 
     // Minha solução não foi aceita pelo lint.
     // const idMax = 1000;
@@ -108,7 +104,6 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardTrunfo,
-      excludeButton,
     };
 
     this.setState((prevState) => ({
@@ -119,18 +114,21 @@ class App extends React.Component {
     this.resetState();
   }
 
-  deleteCard() {
-    console.log('teste');
-    // const { savedCards } = this.state;
-    // const card = savedCards.find((cardValue) => cardValue.newId === id);
-    // console.log(card);
-    // if (card.cardTrunfo) {
-    //   this.setState({
-    //     hasTrunfo: false,
-    //   });
-    //   const cardPosition = savedCards.newId.indexOf(id);
-    //   savedCards.splice(cardPosition, 1);
-    // }
+  deleteCard(id) {
+    const { savedCards } = this.state;
+    const card = savedCards.find((cardValue) => cardValue.newId === id);
+    const allIds = savedCards.map(({ newId }) => newId);
+    if (card.cardTrunfo) {
+      this.setState({
+        hasTrunfo: false,
+      });
+    }
+    const cardPosition = allIds.indexOf(id);
+    savedCards.splice([cardPosition], 1);
+    this.setState({
+      savedCards,
+    });
+    console.log(this.state);
   }
 
   render() {
@@ -186,7 +184,7 @@ class App extends React.Component {
               <button
                 type="button"
                 data-testid="delete-button"
-                onClick={ this.deleteCard }
+                onClick={ () => this.deleteCard(card.newId) }
               >
                 Excluir
               </button>
