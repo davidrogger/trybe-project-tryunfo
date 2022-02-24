@@ -11,17 +11,19 @@ class App extends React.Component {
     this.saveCard = this.saveCard.bind(this);
     this.fieldValidation = this.textValidation.bind(this);
     this.positionTrack = this.textPositionTrack.bind(this);
+    this.resetState = this.resetState.bind(this);
 
     this.state = {
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardAttr1: 0,
       cardAttr2: 0,
       cardAttr3: 0,
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      savedCards: [],
     };
   }
 
@@ -89,8 +91,43 @@ class App extends React.Component {
     });
   }
 
-  saveCard() {
+  resetState() {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardRare: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+    });
+  }
 
+  saveCard(event) {
+    event.preventDefault();
+    const {
+      cardName,
+      cardDescription,
+      cardRare, cardImage,
+      cardAttr1, cardAttr2,
+      cardAttr3,
+    } = this.state;
+
+    const card = {
+      cardName,
+      cardDescription,
+      cardRare,
+      cardImage,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    };
+
+    this.setState((prevState) => ({
+      savedCards: [card, ...prevState.savedCards],
+    }));
+
+    this.resetState();
   }
 
   render() {
