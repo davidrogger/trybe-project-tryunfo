@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class Card extends Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo } = this.props;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+      cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
       <section className="previewCard">
@@ -40,6 +40,7 @@ class Card extends Component {
             {' '}
             <strong data-testid="attr3-card">{cardAttr3}</strong>
           </p>
+
         </section>
 
       </section>

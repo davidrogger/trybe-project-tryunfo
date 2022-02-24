@@ -10,19 +10,21 @@ class App extends React.Component {
     this.stateUpdate = this.stateUpdate.bind(this);
     this.saveCard = this.saveCard.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
 
     this.state = {
       cardName: '',
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       savedCards: [],
+      excludeButton: false,
     };
   }
 
@@ -35,18 +37,18 @@ class App extends React.Component {
     const maxNumber = 90;
     const sumlimit = 210;
     const minMaxTest = numbersList
-      .every((number) => number >= minNumber && number <= maxNumber);
-    const sumNumber = numbersList.reduce((sum, number) => sum + number, 0);
+      .every((number) => Number(number) >= minNumber && Number(number) <= maxNumber);
+    const sumNumber = numbersList.reduce((sum, number) => sum + Number(number), 0);
     const sumLimitTest = sumNumber <= sumlimit;
     return minMaxTest && sumLimitTest;
   }
 
   stateUpdate({ target }) {
     const { name } = target;
-    let newValue = target.type === 'checkbox' ? target.checked : target.value;
-    if (name === 'cardAttr1' || name === 'cardAttr2' || name === 'cardAttr3') {
-      newValue = Number(newValue);
-    }
+    const newValue = target.type === 'checkbox' ? target.checked : target.value;
+    // if (name === 'cardAttr1' || name === 'cardAttr2' || name === 'cardAttr3') {
+    //   newValue = Number(newValue);
+    // }
     this.setState({
       [name]: newValue,
     }, () => {
@@ -54,6 +56,7 @@ class App extends React.Component {
         cardAttr1, cardAttr2, cardAttr3 } = this.state;
       const textResult = this.textValidation([cardName, cardDescription, cardImage]);
       const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
+      console.log(numberResult);
 
       this.setState({
         isSaveButtonDisabled: !(textResult && numberResult),
@@ -75,16 +78,28 @@ class App extends React.Component {
 
   saveCard(event) {
     event.preventDefault();
-    const {
-      cardName,
-      cardDescription,
-      cardRare, cardImage,
-      cardAttr1, cardAttr2,
-      cardAttr3,
-      cardTrunfo,
+    const { cardName, cardDescription, cardRare, cardImage, cardAttr1, cardAttr2,
+      cardAttr3, cardTrunfo,
     } = this.state;
 
+    // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo, gero um número aleatório, converto para hexa, e elimino os 2 primeiros dígitos, que seriam 0 e o .
+    const hexa = 16;
+    const newId = Math.random().toString(hexa).slice(2);
+    const excludeButton = true;
+
+    // Minha solução não foi aceita pelo lint.
+    // const idMax = 1000;
+    // let newId;
+
+    // let notRepetedNumber = false;
+
+    // while (!notRepetedNumber) {
+    //   newId = Math.floor(Math.random() * idMax);
+    //   if (savedCards.every((card) => card.id !== newId)) notRepetedNumber = true;
+    // }
+
     const card = {
+      newId,
       cardName,
       cardDescription,
       cardRare,
@@ -93,6 +108,7 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardTrunfo,
+      excludeButton,
     };
 
     this.setState((prevState) => ({
@@ -103,10 +119,24 @@ class App extends React.Component {
     this.resetState();
   }
 
+  deleteCard() {
+    console.log('teste');
+    // const { savedCards } = this.state;
+    // const card = savedCards.find((cardValue) => cardValue.newId === id);
+    // console.log(card);
+    // if (card.cardTrunfo) {
+    //   this.setState({
+    //     hasTrunfo: false,
+    //   });
+    //   const cardPosition = savedCards.newId.indexOf(id);
+    //   savedCards.splice(cardPosition, 1);
+    // }
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo,
-      isSaveButtonDisabled, savedCards } = this.state;
+      isSaveButtonDisabled, savedCards, excludeButton } = this.state;
 
     return (
       <div>
@@ -135,21 +165,32 @@ class App extends React.Component {
             cardImage={ cardImage }
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
+            excludeButton={ excludeButton }
           />
         </div>
         <div>
-          {savedCards.map((card, index) => (
-            <Card
-              key={ index }
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
-            />
+          {savedCards.map((card) => (
+            <div key={ card.newId }>
+              <Card
+                key={ card.newId }
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+                excludeButton={ card.excludeButton }
+              />
+              <button
+                type="button"
+                data-testid="delete-button"
+                onClick={ this.deleteCard }
+              >
+                Excluir
+              </button>
+            </div>
           ))}
         </div>
       </div>
