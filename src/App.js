@@ -9,8 +9,6 @@ class App extends React.Component {
 
     this.stateUpdate = this.stateUpdate.bind(this);
     this.saveCard = this.saveCard.bind(this);
-    this.fieldValidation = this.textValidation.bind(this);
-    this.positionTrack = this.textPositionTrack.bind(this);
     this.resetState = this.resetState.bind(this);
 
     this.state = {
@@ -28,56 +26,19 @@ class App extends React.Component {
     };
   }
 
-  textPositionTrack(name) {
-    const noMagicNumber = 3;
-    if (name === 'cardName') return 0;
-    if (name === 'cardDescription') return 1;
-    if (name === 'cardImage') return 2;
-    if (name === 'cardRare') return noMagicNumber;
+  textValidation(valueList) {
+    return valueList.every((value) => value.length > 0);
   }
 
-  numberPosition(name) {
-    if (name === 'cardAttr1') return 0;
-    if (name === 'cardAttr2') return 1;
-    if (name === 'cardAttr3') return 2;
-  }
-
-  numberValidation(currentName, currentValue) {
-    const positionNumber = this.numberPosition(currentName);
-    const values = Object.values(this.state)
-      .filter((keyValue) => typeof keyValue === 'number');
-    if (typeof currentValue === 'number') {
-      values[positionNumber] = currentValue;
-    }
-    const maxNumber = 90;
+  numberValidation(numbersList) {
     const minNumber = 0;
-    const maxSum = 210;
-
-    const minMaxNumberTest = values
-      .every((value) => value >= minNumber && value <= maxNumber);
-
-    const sumNumber = values.reduce((sum, number) => sum + number, 0);
-    return minMaxNumberTest && sumNumber <= maxSum;
-  }
-
-  textValidation(currentName, currentValue) {
-    const numberOfValues = 4;
-    const positionField = this.textPositionTrack(currentName);
-
-    const values = Object.values(this.state)
-      .filter((_keyValue, index) => index < numberOfValues);
-
-    if (typeof currentValue === 'string') {
-      values[positionField] = currentValue;
-    }
-
-    return values.every((value) => value.length > 0);
-  }
-
-  finalValidation(currentName, currentValue) {
-    const numberTest = this.numberValidation(currentName, currentValue);
-    const textTest = this.textValidation(currentName, currentValue);
-    return !(numberTest && textTest);
+    const maxNumber = 90;
+    const sumlimit = 210;
+    const minMaxTest = numbersList
+      .every((number) => number >= minNumber && number <= maxNumber);
+    const sumNumber = numbersList.reduce((sum, number) => sum + number, 0);
+    const sumLimitTest = sumNumber <= sumlimit;
+    return minMaxTest && sumLimitTest;
   }
 
   stateUpdate({ target }) {
@@ -88,7 +49,16 @@ class App extends React.Component {
     }
     this.setState({
       [name]: newValue,
-      isSaveButtonDisabled: this.finalValidation(name, newValue),
+    }, () => {
+      const { cardName, cardDescription, cardImage,
+        cardAttr1, cardAttr2, cardAttr3 } = this.state;
+      console.log(typeof cardAttr1);
+      const textResult = this.textValidation([cardName, cardDescription, cardImage]);
+      const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
+
+      this.setState({
+        isSaveButtonDisabled: !(textResult && numberResult),
+      });
     });
   }
 
@@ -123,6 +93,7 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2,
       cardAttr3,
+      cardTrunfo,
     };
 
     this.setState((prevState) => ({
