@@ -30,6 +30,7 @@ class App extends React.Component {
       excludeButton: false,
       cardLibrary: '',
       rareFilter: 'todas',
+      trunfoFilter: false,
     };
   }
 
@@ -83,6 +84,7 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       isSaveButtonDisabled: true,
+      cardTrunfo: false,
     });
   }
 
@@ -145,11 +147,15 @@ class App extends React.Component {
   }
 
   filterCard() {
-    const { savedCards, cardLibrary, rareFilter } = this.state;
+    const { savedCards, cardLibrary, rareFilter, trunfoFilter } = this.state;
 
     return savedCards
       .filter((card) => {
-        if (!cardLibrary && rareFilter === 'todas') return true;
+        if (!cardLibrary && rareFilter === 'todas' && !trunfoFilter) return true;
+        if (trunfoFilter) {
+          return card.cardName.toLowerCase()
+            .includes(cardLibrary.toLowerCase()) && card.cardTrunfo;
+        }
         if (rareFilter !== 'todas') {
           return card.cardName.toLowerCase()
             .includes(cardLibrary.toLowerCase()) && card.cardRare === rareFilter;
@@ -161,7 +167,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo,
-      isSaveButtonDisabled, excludeButton, rareFilter } = this.state;
+      isSaveButtonDisabled, excludeButton, rareFilter, trunfoFilter } = this.state;
 
     const cardFiltered = this.filterCard();
 
@@ -200,6 +206,7 @@ class App extends React.Component {
             <Search
               stateUpdate={ this.stateUpdate }
               rareFilter={ rareFilter }
+              trunfoFilter={ trunfoFilter }
             />
           </div>
           <div className="cardsLibrary">
