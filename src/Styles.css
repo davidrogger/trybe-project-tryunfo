@@ -9,12 +9,18 @@
   flex-direction: column;
 }
 
+input {
+  text-align: center;
+}
+
 .formsCard input {
   margin: 10px 0;
 }
 
 .addCard {
   background-color: rgb(196, 243, 192);
+  display: flex;
+  justify-content: center;
   width: 50%;
 }
 
@@ -39,4 +45,27 @@
 
 textarea {
   resize: none;
+}
+
+.displayCards {
+  display: flex;
+
+}
+
+.cardsFilter {
+  background-color: bisque;
+  height: 500px;
+  width: 50%;
+}
+
+.cardsLibrary {
+  background-color: blanchedalmond;
+  height: 500px;
+  width: 50%;
+}
+
+.eachCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

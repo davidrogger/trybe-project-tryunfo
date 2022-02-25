@@ -2,6 +2,7 @@ import React from 'react';
 import './Styles.css';
 import Form from './components/Form';
 import Card from './components/Card';
+import Search from './components/Search';
 
 class App extends React.Component {
   constructor() {
@@ -11,6 +12,8 @@ class App extends React.Component {
     this.saveCard = this.saveCard.bind(this);
     this.resetState = this.resetState.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
+    this.filterCard = this.filterCard.bind(this);
+    this.allInputsValidations = this.allInputsValidations.bind(this);
 
     this.state = {
       cardName: '',
@@ -25,6 +28,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       savedCards: [],
       excludeButton: false,
+      cardLibrary: '',
     };
   }
 
@@ -43,21 +47,28 @@ class App extends React.Component {
     return minMaxTest && sumLimitTest;
   }
 
+  allInputsValidations() {
+    const { cardName, cardDescription, cardImage,
+      cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const textResult = this.textValidation([cardName, cardDescription, cardImage]);
+    const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
+
+    this.setState({
+      isSaveButtonDisabled: !(textResult && numberResult),
+    });
+  }
+
   stateUpdate({ target }) {
     const { name } = target;
     const newValue = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: newValue,
-    }, () => {
-      const { cardName, cardDescription, cardImage,
-        cardAttr1, cardAttr2, cardAttr3 } = this.state;
-      const textResult = this.textValidation([cardName, cardDescription, cardImage]);
-      const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
-
-      this.setState({
-        isSaveButtonDisabled: !(textResult && numberResult),
-      });
+    },
+    () => {
+      if (name !== 'cardLibrary') {
+        this.allInputsValidations();
+      }
     });
   }
 
@@ -70,6 +81,7 @@ class App extends React.Component {
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',
+      isSaveButtonDisabled: true,
     });
   }
 
@@ -121,6 +133,7 @@ class App extends React.Component {
     if (card.cardTrunfo) {
       this.setState({
         hasTrunfo: false,
+        cardTrunfo: false,
       });
     }
     const cardPosition = allIds.indexOf(id);
@@ -128,13 +141,23 @@ class App extends React.Component {
     this.setState({
       savedCards,
     });
-    console.log(this.state);
+  }
+
+  filterCard() {
+    const { savedCards, cardLibrary } = this.state;
+
+    if (cardLibrary === '') return savedCards;
+    return savedCards
+      .filter((card) => card.cardName.toLowerCase()
+        .includes(cardLibrary.toLowerCase()));
   }
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, hasTrunfo,
-      isSaveButtonDisabled, savedCards, excludeButton } = this.state;
+      cardImage, cardRare, cardTrunfo, hasTrunfo, cardLibrary,
+      isSaveButtonDisabled, excludeButton } = this.state;
+
+    const cardFiltered = this.filterCard();
 
     return (
       <div>
@@ -166,30 +189,39 @@ class App extends React.Component {
             excludeButton={ excludeButton }
           />
         </div>
-        <div>
-          {savedCards.map((card) => (
-            <div key={ card.newId }>
-              <Card
-                key={ card.newId }
-                cardName={ card.cardName }
-                cardDescription={ card.cardDescription }
-                cardAttr1={ card.cardAttr1 }
-                cardAttr2={ card.cardAttr2 }
-                cardAttr3={ card.cardAttr3 }
-                cardImage={ card.cardImage }
-                cardRare={ card.cardRare }
-                cardTrunfo={ card.cardTrunfo }
-                excludeButton={ card.excludeButton }
-              />
-              <button
-                type="button"
-                data-testid="delete-button"
-                onClick={ () => this.deleteCard(card.newId) }
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
+        <div className="displayCards">
+          <div className="cardsFilter">
+            <Search
+              filterCard={ this.filterCard }
+              cardLibrary={ cardLibrary }
+              stateUpdate={ this.stateUpdate }
+            />
+          </div>
+          <div className="cardsLibrary">
+            {cardFiltered.map((card) => (
+              <div className="eachCard" key={ card.newId }>
+                <Card
+                  key={ card.newId }
+                  cardName={ card.cardName }
+                  cardDescription={ card.cardDescription }
+                  cardAttr1={ card.cardAttr1 }
+                  cardAttr2={ card.cardAttr2 }
+                  cardAttr3={ card.cardAttr3 }
+                  cardImage={ card.cardImage }
+                  cardRare={ card.cardRare }
+                  cardTrunfo={ card.cardTrunfo }
+                  excludeButton={ card.excludeButton }
+                />
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ () => this.deleteCard(card.newId) }
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
