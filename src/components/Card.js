@@ -7,7 +7,7 @@ class Card extends Component {
       cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <section className="previewCard">
+      <section className="preview-container">
 
         <h2 data-testid="name-card">{cardName}</h2>
 
