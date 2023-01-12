@@ -20,9 +20,9 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
@@ -53,7 +53,12 @@ class App extends React.Component {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const textResult = this.textValidation([cardName, cardDescription, cardImage]);
-    const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
+    const minAttrDigit = 3;
+    const isAllAttrFilled = cardAttr1.length + cardAttr2.length + cardAttr3.length
+    >= minAttrDigit;
+    const numberResult = isAllAttrFilled
+      ? this.numberValidation([cardAttr1, cardAttr2, cardAttr3])
+      : false;
 
     this.setState({
       isSaveButtonDisabled: !(textResult && numberResult),
@@ -80,9 +85,9 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       isSaveButtonDisabled: true,
       cardTrunfo: false,
     });
@@ -173,7 +178,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className="cardCreation">
+        <div className="top-container">
           <Form
             cardName={ cardName }
             cardDescription={ cardDescription }
