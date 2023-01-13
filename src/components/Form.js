@@ -42,6 +42,7 @@ class Form extends Component {
               type="areatext"
               id="descripInput"
               data-testid="description-input"
+              placeholder="One step every day"
               value={ cardDescription }
               onChange={ onInputChange }
               name="cardDescription"
@@ -60,6 +61,7 @@ class Form extends Component {
                 type="number"
                 id="attr1Input"
                 data-testid="attr1-input"
+                placeholder="70"
                 value={ cardAttr1 }
                 onChange={ onInputChange }
                 name="cardAttr1"
@@ -78,6 +80,7 @@ class Form extends Component {
                 type="number"
                 id="attr2Input"
                 data-testid="attr2-input"
+                placeholder="70"
                 value={ cardAttr2 }
                 onChange={ onInputChange }
                 name="cardAttr2"
@@ -96,6 +99,7 @@ class Form extends Component {
                 type="number"
                 id="attr3Input"
                 data-testid="attr3-input"
+                placeholder="70"
                 value={ cardAttr3 }
                 onChange={ onInputChange }
                 name="cardAttr3"
@@ -130,7 +134,7 @@ class Form extends Component {
           >
             Raridade
             <select
-              className="bottom-line"
+              className="bottom-line select-box"
               id="rarityInput"
               data-testid="rare-input"
               value={ cardRare }

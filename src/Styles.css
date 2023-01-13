@@ -3,6 +3,27 @@
   padding: 0;
 }
 
+:root {
+
+  --primary-text: #3d495c;
+
+  --title-text: #444955;
+
+  --primary-background: #fafafa;
+
+  --secondary-background: #023031;
+
+  --default-background: white;
+
+  --primary-font-text: epilogue;
+
+  --secondary-font-text: verdana;
+
+  --default-font-text: sans-serif;
+
+  --input-height: 25px;
+}
+
 .formsCard {
   display: flex;
   flex-direction: column;
@@ -19,12 +40,13 @@ input {
 
 .bottom-line {
   border: none;
-  border-bottom: 1px solid #3d495c;
+  border-bottom: 1px solid var(--primary-text);
 }
 
 .column-input {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .name-create {
@@ -32,7 +54,7 @@ input {
 }
 
 .name-input {
-  height: 25px;
+  height: var(--input-height);
   text-align: left;
 }
 
@@ -70,16 +92,22 @@ textarea:focus {
 }
 
 .attribute-input {
-  border: 1px solid #29313d;
-  border-radius: 10px;
+  border: 1px solid;
+  border-radius: 5px;
   flex-grow: 2;
-  font-family: Verdana , sans-serif;
-  height: 25px;
+  height: var(--input-height);
   text-align: right;
 }
 
 .image-input {
-  height: 25px;
+  height: var(--input-height);
+}
+
+.select-box {
+  background: var(--default-background);
+  font-family: var(--secondary-font-text);
+  font-size: 17px;
+  height: 40px;
 }
 
 .image-container {
@@ -87,21 +115,21 @@ textarea:focus {
 }
 
 .link-ico {
-  background-color: #023031;
-  color: white;
+  background-color: var(--secondary-background);
+  color: var(--default-background);
   position: absolute;
   top: 11px;
 }
 
 .input-label {
-  color: #3d495c;
-  font-family: Verdana , sans-serif;
+  color: var(--primary-text);
+  font-family: var(--secondary-font-text) , var(--default-font-text);
   font-weight: 700;
 }
 
 .form-container {
   align-items: center;
-  background-color: #fafafa;
+  background-color: var(--primary-background);
   display: flex;
   justify-content: center;
   width: 50%;
@@ -114,13 +142,13 @@ textarea:focus {
 
 .title-primary {
   color: #444955;
-  font-family: Epilogue , sans-serif;
+  font-family: var(--primary-font-text) , var(--default-font-text);
   margin-bottom: 40px;
 }
 
 .preview-container {
   align-items: center;
-  background-color: #023031;
+  background-color: var(--secondary-background);
   display: flex;
   flex-direction: column;
   width: 50%;
