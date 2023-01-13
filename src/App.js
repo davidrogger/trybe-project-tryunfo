@@ -99,20 +99,11 @@ class App extends React.Component {
       cardAttr3, cardTrunfo,
     } = this.state;
 
-    // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo, gero um número aleatório, converto para hexa, e elimino os 2 primeiros dígitos, que seriam 0 e o .
+    // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo,
+    // gero um número aleatório, converto para hexa, e elimino os 2 primeiros
+    // dígitos, que seriam 0 e o .
     const hexa = 16;
     const newId = Math.random().toString(hexa).slice(2);
-
-    // Minha solução não foi aceita pelo lint.
-    // const idMax = 1000;
-    // let newId;
-
-    // let notRepetedNumber = false;
-
-    // while (!notRepetedNumber) {
-    //   newId = Math.floor(Math.random() * idMax);
-    //   if (savedCards.every((card) => card.id !== newId)) notRepetedNumber = true;
-    // }
 
     const card = {
       newId,
