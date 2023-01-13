@@ -207,3 +207,14 @@ textarea:focus {
   flex-direction: column;
   width: 50%;
 }
+
+.card-title {
+  align-items: center;
+  background-color: #023031;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  display: flex;
+  height: 40px;
+  justify-content: flex-end;
+  padding-right: 15px;
+}

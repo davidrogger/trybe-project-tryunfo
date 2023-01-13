@@ -9,7 +9,12 @@ class Card extends Component {
     return (
       <section className="card-edge">
         <section className="card-content">
-          <h2 data-testid="name-card">{cardName}</h2>
+          <h2
+            className="card-title"
+            data-testid="name-card"
+          >
+            {cardName}
+          </h2>
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
 
           { cardTrunfo && (
