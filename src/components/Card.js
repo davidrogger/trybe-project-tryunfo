@@ -34,9 +34,14 @@ class Card extends Component {
               </span>
             )}
           </section>
-
-          <em data-testid="description-card">{cardDescription}</em>
-
+          <section className="description-container">
+            <em
+              className="description-text"
+              data-testid="description-card"
+            >
+              {cardDescription}
+            </em>
+          </section>
           <h3 data-testid="rare-card">
             {cardRare}
           </h3>

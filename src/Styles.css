@@ -242,7 +242,7 @@ textarea:focus {
   background-color: #036b52;
   border: 5px solid var(--secondary-background);
   border-radius: 100%;
-  bottom: 50px;
+  bottom: 60px;
   box-sizing: border-box;
   color: white;
   display: flex;
@@ -255,4 +255,21 @@ textarea:focus {
   right: 10px;
   transform: rotate(-25deg);
   width: 60px;
+}
+
+.description-container {
+  background-color: tomato;
+  position: relative;
+  width: 317px;
+}
+
+.description-text {
+  background-color: #036b52;
+  border-radius: 0 0 30px;
+  height: 80px;
+  left: 4px;
+  position: absolute;
+  top: -30px;
+  transform: rotate(-10deg);
+  width: 323px;
 }
