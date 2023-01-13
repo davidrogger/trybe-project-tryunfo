@@ -69,7 +69,7 @@ textarea:focus {
   outline: none;
 }
 
-.attribute-container {
+.forms-attribute-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -199,13 +199,6 @@ textarea:focus {
   width: 348px;
 }
 
-.attriContainer {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
 .card-title {
   align-items: center;
   background-color: #023031;
@@ -259,20 +252,19 @@ textarea:focus {
 
 .description-text {
   background-color: #036b52;
-  border-radius: 0 0 30px;
   color: white;
   font-family: Verdana , sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
   height: 80px;
-  left: 2px;
+  left: -7px;
   line-height: 13px;
-  padding: 3px;
+  padding: 5px 15px;
   position: absolute;
   top: -30px;
   transform: rotate(-6.92deg);
-  width: 321px;
+  width: 305px;
 }
 
 .type-card {
@@ -285,4 +277,11 @@ textarea:focus {
   text-align: center;
   top: -45px;
   transform: rotate(-6.92deg);
+}
+
+.card-attribute-container {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  height: 225px;
+  width: 317px;
 }

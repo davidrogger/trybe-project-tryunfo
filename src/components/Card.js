@@ -48,7 +48,7 @@ class Card extends Component {
               {cardDescription}
             </em>
           </section>
-          <section className="attriContainer">
+          <section className="card-attribute-container ">
             <p>
               <em>Primeiro:</em>
               <strong data-testid="attr1-card">{cardAttr1}</strong>

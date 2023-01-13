@@ -48,7 +48,7 @@ class Form extends Component {
               name="cardDescription"
             />
           </label>
-          <div className="attribute-container">
+          <div className="forms-attribute-container">
             <label
               className="input-label row-label"
               htmlFor="attr1Input"
