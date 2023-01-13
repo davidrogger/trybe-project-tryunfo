@@ -15,7 +15,15 @@ class Card extends Component {
           >
             {cardName}
           </h2>
-          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+
+          <section className="card-image-container">
+            <img
+              className="image-card"
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+          </section>
 
           { cardTrunfo && (
             <span data-testid="trunfo-card">Super Trunfo</span>

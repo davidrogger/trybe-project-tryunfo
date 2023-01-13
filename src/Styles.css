@@ -195,9 +195,13 @@ textarea:focus {
 }
 
 .card-content {
+  align-items: center;
   background-color: #036b52;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   height: 529px;
+  justify-content: center;
   width: 348px;
 }
 
@@ -217,4 +221,17 @@ textarea:focus {
   height: 40px;
   justify-content: flex-end;
   padding-right: 15px;
+  width: 302px;
+}
+
+.card-image-container {
+  background-color: tomato;
+  height: 238px;
+  width: 317px;
+}
+
+.image-card {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
