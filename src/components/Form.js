@@ -170,6 +170,7 @@ class Form extends Component {
               </label>)}
 
           <button
+            className="save-btn"
             type="submit"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }

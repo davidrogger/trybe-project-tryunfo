@@ -143,6 +143,25 @@ textarea:focus {
   width: 50%;
 }
 
+.save-btn {
+  background-color: #003be5;
+  border: none;
+  color: white;
+  font-family: var(--secondary-font-text) , var(--default-font-text);
+  height: 40px;
+  margin-top: 35px;
+  transition: all 0.5s ease;
+}
+
+.save-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.save-btn:hover:enabled {
+  background-color: var(--secondary-background);
+}
+
 .top-container {
   display: flex;
   height: 100vh;
