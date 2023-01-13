@@ -11,7 +11,7 @@ class Form extends Component {
 
     return (
       <section className="form-container">
-        <form className="formsCard">
+        <form className="forms-card">
 
           <h1 className="title-primary">Adicionar Nova Carta</h1>
 

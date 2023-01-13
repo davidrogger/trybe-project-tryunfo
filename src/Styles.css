@@ -24,7 +24,7 @@
   --input-height: 25px;
 }
 
-.formsCard {
+.forms-card {
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -34,7 +34,7 @@ input {
   text-align: center;
 }
 
-.formsCard input {
+.forms-card input {
   margin: 10px 0;
 }
 
@@ -206,22 +206,4 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   width: 50%;
-}
-
-.cardsFilter {
-  background-color: bisque;
-  height: 500px;
-  width: 50%;
-}
-
-.cardsLibrary {
-  background-color: blanchedalmond;
-  height: 500px;
-  width: 50%;
-}
-
-.eachCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
