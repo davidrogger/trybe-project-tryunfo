@@ -54,7 +54,7 @@ class Form extends Component {
               htmlFor="attr1Input"
             >
               <span>
-                Attr01:
+                HardSkills:
               </span>
               <input
                 className="attribute-input"
@@ -73,14 +73,14 @@ class Form extends Component {
               htmlFor="attr2Input"
             >
               <span>
-                Attr02:
+                SoftSkills:
               </span>
               <input
                 className="attribute-input"
                 type="number"
                 id="attr2Input"
                 data-testid="attr2-input"
-                placeholder="70"
+                placeholder="50"
                 value={ cardAttr2 }
                 onChange={ onInputChange }
                 name="cardAttr2"
@@ -92,14 +92,14 @@ class Form extends Component {
               htmlFor="attr3Input"
             >
               <span>
-                Attr03:
+                WillPower:
               </span>
               <input
                 className="attribute-input"
                 type="number"
                 id="attr3Input"
                 data-testid="attr3-input"
-                placeholder="70"
+                placeholder="90"
                 value={ cardAttr3 }
                 onChange={ onInputChange }
                 name="cardAttr3"
