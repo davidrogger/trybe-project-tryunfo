@@ -101,6 +101,7 @@ textarea:focus {
 
 .image-input {
   height: var(--input-height);
+  width: 95%;
 }
 
 .select-box {
@@ -111,6 +112,7 @@ textarea:focus {
 }
 
 .image-container {
+  flex-grow: 2;
   position: relative;
 }
 
