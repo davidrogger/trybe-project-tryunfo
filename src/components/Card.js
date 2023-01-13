@@ -7,42 +7,35 @@ class Card extends Component {
       cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <section className="preview-container">
+      <section className="card-edge">
+        <section className="card-content">
+          <h2 data-testid="name-card">{cardName}</h2>
+          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
 
-        <h2 data-testid="name-card">{cardName}</h2>
+          { cardTrunfo && (
+            <span data-testid="trunfo-card">Super Trunfo</span>
+          )}
 
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+          <em data-testid="description-card">{cardDescription}</em>
 
-        { cardTrunfo && (
-          <span data-testid="trunfo-card">Super Trunfo</span>
-        )}
-
-        <em data-testid="description-card">{cardDescription}</em>
-
-        <h3 data-testid="rare-card">
-          {' '}
-          {cardRare}
-          {' '}
-        </h3>
-        <section className="attriContainer">
-          <p>
-            <em>Primeiro:</em>
-            {' '}
-            <strong data-testid="attr1-card">{cardAttr1}</strong>
-          </p>
-          <p>
-            <em>Segundo:</em>
-            {' '}
-            <strong data-testid="attr2-card">{cardAttr2}</strong>
-          </p>
-          <p>
-            <em>Terceiro:</em>
-            {' '}
-            <strong data-testid="attr3-card">{cardAttr3}</strong>
-          </p>
-
+          <h3 data-testid="rare-card">
+            {cardRare}
+          </h3>
+          <section className="attriContainer">
+            <p>
+              <em>Primeiro:</em>
+              <strong data-testid="attr1-card">{cardAttr1}</strong>
+            </p>
+            <p>
+              <em>Segundo:</em>
+              <strong data-testid="attr2-card">{cardAttr2}</strong>
+            </p>
+            <p>
+              <em>Terceiro:</em>
+              <strong data-testid="attr3-card">{cardAttr3}</strong>
+            </p>
+          </section>
         </section>
-
       </section>
     );
   }

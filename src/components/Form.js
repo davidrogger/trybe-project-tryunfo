@@ -22,7 +22,7 @@ class Form extends Component {
             Nome:
             <input
               className="name-input bottom-line"
-              placeholder="Placeholder"
+              placeholder="Jonas Silva"
               type="text"
               id="nameInput"
               data-testid="name-input"

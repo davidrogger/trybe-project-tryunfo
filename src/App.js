@@ -1,7 +1,7 @@
 import React from 'react';
 import './Styles.css';
 import Form from './components/Form';
-import Card from './components/Card';
+import Preview from './components/PreviewCard';
 import Search from './components/Search';
 
 class App extends React.Component {
@@ -185,7 +185,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.saveCard }
           />
 
-          <Card
+          <Preview
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -208,7 +208,7 @@ class App extends React.Component {
           <div className="cardsLibrary">
             {cardFiltered.map((card) => (
               <div className="eachCard" key={ card.newId }>
-                <Card
+                <Preview
                   key={ card.newId }
                   cardName={ card.cardName }
                   cardDescription={ card.cardDescription }

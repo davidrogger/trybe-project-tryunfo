@@ -179,8 +179,26 @@ textarea:focus {
   align-items: center;
   background-color: var(--secondary-background);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   width: 50%;
+}
+
+.card-edge {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 549px;
+  justify-content: center;
+  width: 368px;
+}
+
+.card-content {
+  background-color: #036b52;
+  border-radius: 10px;
+  height: 529px;
+  width: 348px;
 }
 
 .attriContainer {
@@ -188,11 +206,6 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   width: 50%;
-}
-
-.displayCards {
-  display: flex;
-
 }
 
 .cardsFilter {
