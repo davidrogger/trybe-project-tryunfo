@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Sparkle } from 'phosphor-react';
 
 class Card extends Component {
   render() {
@@ -23,11 +24,16 @@ class Card extends Component {
               alt={ cardName }
               data-testid="image-card"
             />
+            { cardTrunfo && (
+              <span
+                className="trunfo-ico"
+                data-testid="trunfo-card"
+              >
+                <Sparkle color="yellow" size={ 15 } />
+                tryunfo
+              </span>
+            )}
           </section>
-
-          { cardTrunfo && (
-            <span data-testid="trunfo-card">Super Trunfo</span>
-          )}
 
           <em data-testid="description-card">{cardDescription}</em>
 

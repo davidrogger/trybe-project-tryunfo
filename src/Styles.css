@@ -225,8 +225,9 @@ textarea:focus {
 }
 
 .card-image-container {
-  background-color: tomato;
+  background-color: white;
   height: 238px;
+  position: relative;
   width: 317px;
 }
 
@@ -234,4 +235,24 @@ textarea:focus {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.trunfo-ico {
+  align-items: center;
+  background-color: #036b52;
+  border: 5px solid var(--secondary-background);
+  border-radius: 100%;
+  bottom: 50px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  height: 60px;
+  justify-content: center;
+  opacity: 0.9;
+  position: absolute;
+  right: 10px;
+  transform: rotate(-25deg);
+  width: 60px;
 }
