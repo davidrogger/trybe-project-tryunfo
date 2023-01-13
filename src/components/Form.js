@@ -152,10 +152,11 @@ class Form extends Component {
           )
             : (
               <label
-                className="input-label"
+                className="input-label checkbox-super"
                 htmlFor="trunfoInput"
               >
                 <input
+                  className="checkbox-super"
                   type="checkbox"
                   id="trunfoInput"
                   data-testid="trunfo-input"
@@ -163,7 +164,9 @@ class Form extends Component {
                   onChange={ onInputChange }
                   name="cardTrunfo"
                 />
-                Super Trybe Trunfo
+                <span>
+                  Super Trybe Trunfo
+                </span>
               </label>)}
 
           <button

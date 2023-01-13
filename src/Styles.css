@@ -127,6 +127,14 @@ textarea:focus {
   font-weight: 700;
 }
 
+.checkbox-super input {
+  margin-right: 10px;
+}
+
+.checkbox-super {
+  cursor: pointer;
+}
+
 .form-container {
   align-items: center;
   background-color: var(--primary-background);
