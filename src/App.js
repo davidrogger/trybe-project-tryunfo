@@ -2,6 +2,7 @@ import React from 'react';
 import './Styles.css';
 import Form from './components/Form';
 import Preview from './components/PreviewCard';
+import Card from './components/Card';
 import Search from './components/Search';
 
 class App extends React.Component {
@@ -171,7 +172,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className="top-container">
+        <div className="display-container">
           <Form
             cardName={ cardName }
             cardDescription={ cardDescription }
@@ -199,18 +200,19 @@ class App extends React.Component {
             excludeButton={ excludeButton }
           />
         </div>
-        <div className="displayCards">
-          <div className="cardsFilter">
+        <div className="display-container">
+          <div className="cards-container">
+            <h2 className="title-primary">Todas Cartas</h2>
             <Search
               stateUpdate={ this.stateUpdate }
               rareFilter={ rareFilter }
               trunfoFilter={ trunfoFilter }
             />
           </div>
-          <div className="cardsLibrary">
+          <div className="cards-library">
             {cardFiltered.map((card) => (
               <div className="eachCard" key={ card.newId }>
-                <Preview
+                <Card
                   key={ card.newId }
                   cardName={ card.cardName }
                   cardDescription={ card.cardDescription }
