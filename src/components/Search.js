@@ -44,7 +44,9 @@ class Search extends Component {
               checked={ trunfoFilter }
               onChange={ stateUpdate }
             />
-            Super Tryunfo
+            <span className="text-format">
+              Super Tryunfo
+            </span>
           </label>
         </section>
       </section>
