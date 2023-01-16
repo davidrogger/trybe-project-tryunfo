@@ -257,9 +257,9 @@ textarea:focus {
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
-  height: 80px;
   left: -7px;
   line-height: 13px;
+  min-height: 40px;
   padding: 5px 15px;
   position: absolute;
   top: -30px;
