@@ -166,7 +166,7 @@ textarea:focus {
 .display-container {
   background-color: var(--primary-background);
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .title-primary {
@@ -388,6 +388,6 @@ textarea:focus {
 }
 
 .mid-container {
-  padding-bottom: 500px;
+  padding-bottom: 100px;
   padding-top: 100px;
 }
