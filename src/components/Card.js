@@ -48,17 +48,17 @@ class Card extends Component {
               {cardDescription}
             </em>
           </section>
-          <section className="card-attribute-container ">
+          <section className="card-attribute-container">
             <p>
-              <em>Primeiro:</em>
+              <em>Ataque:</em>
               <strong data-testid="attr1-card">{cardAttr1}</strong>
             </p>
             <p>
-              <em>Segundo:</em>
+              <em>Defesa:</em>
               <strong data-testid="attr2-card">{cardAttr2}</strong>
             </p>
             <p>
-              <em>Terceiro:</em>
+              <em>Especial:</em>
               <strong data-testid="attr3-card">{cardAttr3}</strong>
             </p>
           </section>

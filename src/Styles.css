@@ -280,8 +280,24 @@ textarea:focus {
 }
 
 .card-attribute-container {
+  align-items: center;
   background-color: white;
   border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
   height: 225px;
+  justify-content: flex-end;
   width: 317px;
+}
+
+.card-attribute-container p {
+  align-items: center;
+  background-color: #F0F2F5;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 80%;
 }
