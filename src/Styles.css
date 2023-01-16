@@ -117,7 +117,7 @@ textarea:focus {
   top: 11px;
 }
 
-.input-label {
+.text-format {
   color: var(--primary-text);
   font-family: Verdana , sans-serif;
   font-weight: 700;
@@ -129,6 +129,11 @@ textarea:focus {
 
 .checkbox-super {
   cursor: pointer;
+}
+
+.tryunfo-text {
+  margin-top: 15px;
+  text-align: center;
 }
 
 .form-container {
@@ -365,7 +370,7 @@ textarea:focus {
   flex-direction: column;
   height: 600px;
   justify-content: space-between;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
 }
 
 .card-delete-btn {
@@ -383,5 +388,6 @@ textarea:focus {
 }
 
 .mid-container {
+  padding-bottom: 500px;
   padding-top: 100px;
 }

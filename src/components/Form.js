@@ -16,7 +16,7 @@ class Form extends Component {
           <h1 className="title-primary">Adicionar Nova Carta</h1>
 
           <label
-            className="name-create input-label column-input"
+            className="name-create text-format column-input"
             htmlFor="nameInput"
           >
             Nome:
@@ -33,7 +33,7 @@ class Form extends Component {
           </label>
 
           <label
-            className="description-input  input-label"
+            className="description-input  text-format"
             htmlFor="descripInput"
           >
             Descrição:
@@ -50,7 +50,7 @@ class Form extends Component {
           </label>
           <div className="forms-attribute-container">
             <label
-              className="input-label row-label"
+              className="text-format row-label"
               htmlFor="attr1Input"
             >
               <span>
@@ -69,7 +69,7 @@ class Form extends Component {
             </label>
 
             <label
-              className="input-label row-label"
+              className="text-format row-label"
               htmlFor="attr2Input"
             >
               <span>
@@ -88,7 +88,7 @@ class Form extends Component {
             </label>
 
             <label
-              className="input-label row-label"
+              className="text-format row-label"
               htmlFor="attr3Input"
             >
               <span>
@@ -108,7 +108,7 @@ class Form extends Component {
           </div>
 
           <label
-            className="input-label row-label"
+            className="text-format row-label"
             htmlFor="imgInput"
           >
             <span>
@@ -129,7 +129,7 @@ class Form extends Component {
           </label>
 
           <label
-            className="input-label column-input"
+            className="text-format column-input"
             htmlFor="rarityInput"
           >
             Raridade
@@ -148,11 +148,13 @@ class Form extends Component {
           </label>
 
           {hasTrunfo ? (
-            <span>Você já tem um Super Trunfo em seu baralho</span>
+            <span className="text-format tryunfo-text">
+              Você já tem um Super Trunfo em seu baralho
+            </span>
           )
             : (
               <label
-                className="input-label checkbox-super"
+                className="text-format checkbox-super"
                 htmlFor="trunfoInput"
               >
                 <input
