@@ -5,6 +5,8 @@ import Preview from './components/PreviewCard';
 import Card from './components/Card';
 import Search from './components/Search';
 
+import deckDefault from './assets/default-cards';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -27,7 +29,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
-      savedCards: [],
+      savedCards: [...deckDefault],
       excludeButton: false,
       cardLibrary: '',
       rareFilter: 'todas',
