@@ -78,7 +78,7 @@ textarea:focus {
 .row-label {
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .row-label > span {
@@ -88,9 +88,9 @@ textarea:focus {
 .attribute-input {
   border: 1px solid;
   border-radius: 5px;
-  flex-grow: 2;
   height: var(--input-height);
   text-align: right;
+  width: 70%;
 }
 
 .image-input {
