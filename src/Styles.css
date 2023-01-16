@@ -290,7 +290,7 @@ textarea:focus {
   width: 317px;
 }
 
-.card-attribute-container p {
+.card-attribute {
   align-items: center;
   background-color: #f0f2f5;
   border-radius: 10px;
@@ -302,7 +302,7 @@ textarea:focus {
   width: 80%;
 }
 
-.card-attribute-container p:last-of-type {
+.card-attribute:last-of-type {
   margin-bottom: 25px;
 }
 
