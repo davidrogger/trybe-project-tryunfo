@@ -158,7 +158,8 @@ textarea:focus {
   background-color: var(--secondary-background);
 }
 
-.top-container {
+.display-container {
+  background-color: var(--primary-background);
   display: flex;
   height: 100vh;
 }
@@ -326,4 +327,37 @@ textarea:focus {
 .card-attribute-container div {
   border-bottom: 1px dashed black;
   flex-grow: 2;
+}
+
+.filter-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.filter-options * {
+  margin-bottom: 30px;
+}
+
+.preview-cards {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  flex-grow: 2;
+  padding-left: 30px;
+}
+
+.cards-library {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.mid-container {
+  padding-top: 100px;
 }
