@@ -212,7 +212,7 @@ class App extends React.Component {
             <h1 className="title-primary">Cartas</h1>
             <div className="cards-library">
               {cardFiltered.map((card) => (
-                <div className="eachCard" key={ card.newId }>
+                <div className="card-library" key={ card.newId }>
                   <Card
                     key={ card.newId }
                     cardName={ card.cardName }
@@ -226,6 +226,7 @@ class App extends React.Component {
                     excludeButton={ card.excludeButton }
                   />
                   <button
+                    className="card-delete-btn"
                     type="button"
                     data-testid="delete-button"
                     onClick={ () => this.deleteCard(card.newId) }
