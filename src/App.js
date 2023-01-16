@@ -96,7 +96,7 @@ class App extends React.Component {
   saveCard(event) {
     event.preventDefault();
     const { cardName, cardDescription, cardRare, cardImage, cardAttr1, cardAttr2,
-      cardAttr3, cardTrunfo,
+      cardAttr3, cardTrunfo, hasTrunfo,
     } = this.state;
 
     // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo,
@@ -117,9 +117,11 @@ class App extends React.Component {
       cardTrunfo,
     };
 
+    const trunfoUpdate = hasTrunfo ? true : cardTrunfo;
+
     this.setState((prevState) => ({
       savedCards: [...prevState.savedCards, card],
-      hasTrunfo: cardTrunfo,
+      hasTrunfo: trunfoUpdate,
     }));
 
     this.resetState();
