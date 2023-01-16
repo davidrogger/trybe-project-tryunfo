@@ -54,7 +54,7 @@ class Form extends Component {
               htmlFor="attr1Input"
             >
               <span>
-                HardSkills:
+                Ataque:
               </span>
               <input
                 className="attribute-input"
@@ -73,7 +73,7 @@ class Form extends Component {
               htmlFor="attr2Input"
             >
               <span>
-                SoftSkills:
+                Defesa:
               </span>
               <input
                 className="attribute-input"
@@ -92,7 +92,7 @@ class Form extends Component {
               htmlFor="attr3Input"
             >
               <span>
-                WillPower:
+                Especial:
               </span>
               <input
                 className="attribute-input"
