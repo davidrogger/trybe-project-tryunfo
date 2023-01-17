@@ -58,7 +58,3 @@
 
 
 </details>
-
-#
-
-![Last Update](https://badgen.net/github/last-commit/davidrogger/trybe-project-tryunfo/main)
