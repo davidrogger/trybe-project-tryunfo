@@ -1,7 +1,7 @@
 # Sobre
 
 ## Seção: `Componentes com Estado, Eventos e Formulários`
-- Seção, apresentando mais sobre o uso de compoentes agora usando o estado na classe, para armazenarmos informações dinâmicas por meio dos eventos, sobre um formuário controlado.
+- Seção apresenta mais sobre o uso de compoentes agora usando o estado na classe, para armazenarmos informações dinâmicas por meio dos eventos, sobre um formuário controlado.
 #
 <div align="center">
   <a href="https://davidrogger.github.io/trybe-project-tryunfo">
