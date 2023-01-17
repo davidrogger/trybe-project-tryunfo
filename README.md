@@ -4,10 +4,10 @@
 - Seção, apresentando mais sobre o uso de compoentes agora usando o estado na classe, para armazenarmos informações dinâmicas por meio dos eventos, sobre um formuário controlado.
 #
 <div align="center">
-  <a href="https://davidrogger.github.io/trybe-project-solar-system">
-    <img width="30%" src="./imgs/project_tryunfo_top.jpg">
-    <img width="30%" src="./imgs/project_tryunfo_mid.jpg">
-    <img width="30%" src="./imgs/project_tryunfo_bottom.jpg">
+  <a href="https://davidrogger.github.io/trybe-project-tryunfo">
+    <img width="30%" src="./imgs/project_tryunfo_top.webp">
+    <img width="30%" src="./imgs/project_tryunfo_mid.webp">
+    <img width="30%" src="./imgs/project_tryunfo_bottom.webp">
   </a>
 </div>
 
