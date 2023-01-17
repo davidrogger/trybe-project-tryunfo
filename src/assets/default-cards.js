@@ -30,7 +30,7 @@ export default [
     cardAttr1: '99',
     cardAttr2: '99',
     cardAttr3: '99',
-    cardDescription: 'É uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.',
+    cardDescription: 'É uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. Fonte: Wiki',
     cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/html_avatar.webp?raw=true',
   },
   {
@@ -41,7 +41,18 @@ export default [
     cardAttr1: '99',
     cardAttr2: '99',
     cardAttr3: '99',
-    cardDescription: 'Serviço baseado em nuvem que hospeda um sistema de controle de versão (VCS) chamado Git. Ele permite que os desenvolvedores colaborem e façam mudanças em projetos compartilhados enquanto mantêm um registro detalhado do seu progresso.',
+    cardDescription: 'Serviço baseado em nuvem que hospeda um sistema de controle de versão (VCS) chamado Git. Ele permite que os desenvolvedores colaborem e façam mudanças em projetos compartilhados enquanto mantêm um registro detalhado do seu progresso. Fonte: Hostinger',
     cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/github_avatar.webp?raw=true',
+  },
+  {
+    newId: '5',
+    cardName: 'Jest',
+    cardRare: 'raro',
+    cardTrunfo: false,
+    cardAttr1: '99',
+    cardAttr2: '99',
+    cardAttr3: '99',
+    cardDescription: 'Um framework de teste unitário de código aberto em Javascript, sendo uma das ferramentas de teste mais difundidas dentro da comunidade de JavaScript',
+    cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/jest_avatar.gif?raw=true',
   },
 ];
