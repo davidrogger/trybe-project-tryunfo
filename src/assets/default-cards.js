@@ -64,6 +64,17 @@ export default [
     cardAttr2: '99',
     cardAttr3: '99',
     cardDescription: 'Biblioteca JavaScript criada pelo Facebook para desenvolvimento de interfaces. Permite construir aplicações web de maneira eficiente, dividindo a interface em componentes pequenos e reutilizáveis, gerenciando o estado da aplicação de maneira simples.',
-    cardImage: 'https://www.freecodecamp.org/news/content/images/2021/02/React-js-1.png',
+    cardImage: 'https://raw.githubusercontent.com/davidrogger/trybe-project-tryunfo/readme-update/imgs/react_avatar.webp',
+  },
+  {
+    newId: '7',
+    cardName: 'Docker',
+    cardRare: 'raro',
+    cardTrunfo: false,
+    cardAttr1: '99',
+    cardAttr2: '99',
+    cardAttr3: '99',
+    cardDescription: 'Ferramenta de virtualização, que permite criar, gerenciar e executar contêineres. São máquinas virtuais leves, que possuem todas as dependências e configurações necessárias para rodar uma aplicação.',
+    cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/docker_avatar.webp?raw=true',
   },
 ];
