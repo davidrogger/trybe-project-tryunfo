@@ -55,4 +55,15 @@ export default [
     cardDescription: 'Um framework de teste unitário de código aberto em Javascript, sendo uma das ferramentas de teste mais difundidas dentro da comunidade de JavaScript',
     cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/jest_avatar.gif?raw=true',
   },
+  {
+    newId: '6',
+    cardName: 'React',
+    cardRare: 'raro',
+    cardTrunfo: false,
+    cardAttr1: '99',
+    cardAttr2: '99',
+    cardAttr3: '99',
+    cardDescription: 'Biblioteca JavaScript criada pelo Facebook para desenvolvimento de interfaces. Permite construir aplicações web de maneira eficiente, dividindo a interface em componentes pequenos e reutilizáveis, gerenciando o estado da aplicação de maneira simples.',
+    cardImage: 'https://www.freecodecamp.org/news/content/images/2021/02/React-js-1.png',
+  },
 ];
