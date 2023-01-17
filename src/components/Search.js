@@ -5,41 +5,51 @@ class Search extends Component {
   render() {
     const { stateUpdate, rareFilter, trunfoFilter } = this.props;
     return (
-      <>
-        <h1>Busca</h1>
-        <input
-          data-testid="name-filter"
-          name="cardLibrary"
-          type="text"
-          placeholder="Busque pelo nome"
-          onChange={ stateUpdate }
-          disabled={ trunfoFilter }
-        />
-
-        <select
-          data-testid="rare-filter"
-          name="rareFilter"
-          value={ rareFilter }
-          onChange={ stateUpdate }
-          disabled={ trunfoFilter }
-        >
-          <option value="todas">Todas</option>
-          <option value="normal">Normal</option>
-          <option value="raro">Raro</option>
-          <option value="muito raro">Muito raro</option>
-        </select>
-
-        <label data-testid="trunfo-filter" htmlFor="superTrunfo">
+      <section className="filter-container">
+        <h1 className="title-primary">Filtro de busca</h1>
+        <section className="filter-options">
           <input
-            name="trunfoFilter"
-            id="superTrunfo"
-            type="checkbox"
-            checked={ trunfoFilter }
+            className="name-input bottom-line"
+            data-testid="name-filter"
+            name="cardLibrary"
+            type="text"
+            placeholder="Nome da Carta"
             onChange={ stateUpdate }
+            disabled={ trunfoFilter }
           />
-          Super Trunfo
-        </label>
-      </>
+
+          <select
+            className="bottom-line select-box"
+            data-testid="rare-filter"
+            name="rareFilter"
+            value={ rareFilter }
+            onChange={ stateUpdate }
+            disabled={ trunfoFilter }
+          >
+            <option value="todas">Todas</option>
+            <option value="normal">Normal</option>
+            <option value="raro">Raro</option>
+            <option value="muito raro">Muito raro</option>
+          </select>
+
+          <label
+            className="input-label checkbox-super"
+            data-testid="trunfo-filter"
+            htmlFor="superTrunfo"
+          >
+            <input
+              name="trunfoFilter"
+              id="superTrunfo"
+              type="checkbox"
+              checked={ trunfoFilter }
+              onChange={ stateUpdate }
+            />
+            <span className="text-format">
+              Super Tryunfo
+            </span>
+          </label>
+        </section>
+      </section>
     );
   }
 }

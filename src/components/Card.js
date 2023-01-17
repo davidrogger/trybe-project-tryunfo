@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Sparkle } from 'phosphor-react';
 
 class Card extends Component {
   render() {
@@ -7,42 +8,64 @@ class Card extends Component {
       cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <section className="previewCard">
+      <section className="card-edge">
+        <section className="card-content">
+          <h2
+            className="card-title"
+            data-testid="name-card"
+          >
+            {cardName}
+          </h2>
 
-        <h2 data-testid="name-card">{cardName}</h2>
-
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-
-        { cardTrunfo && (
-          <span data-testid="trunfo-card">Super Trunfo</span>
-        )}
-
-        <em data-testid="description-card">{cardDescription}</em>
-
-        <h3 data-testid="rare-card">
-          {' '}
-          {cardRare}
-          {' '}
-        </h3>
-        <section className="attriContainer">
-          <p>
-            <em>Primeiro:</em>
-            {' '}
-            <strong data-testid="attr1-card">{cardAttr1}</strong>
-          </p>
-          <p>
-            <em>Segundo:</em>
-            {' '}
-            <strong data-testid="attr2-card">{cardAttr2}</strong>
-          </p>
-          <p>
-            <em>Terceiro:</em>
-            {' '}
-            <strong data-testid="attr3-card">{cardAttr3}</strong>
-          </p>
-
+          <section className="card-image-container">
+            <img
+              className="image-card"
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+            { cardTrunfo && (
+              <span
+                className="trunfo-ico"
+                data-testid="trunfo-card"
+              >
+                <Sparkle color="yellow" size={ 15 } />
+                tryunfo
+              </span>
+            )}
+          </section>
+          <section className="description-container">
+            <h3
+              className="type-card"
+              data-testid="rare-card"
+            >
+              {cardRare}
+            </h3>
+            <em
+              className="description-text"
+              data-testid="description-card"
+            >
+              {cardDescription}
+            </em>
+          </section>
+          <section className="card-attribute-container">
+            <section className="card-attribute">
+              <span>Ataque</span>
+              <div> </div>
+              <strong data-testid="attr1-card">{cardAttr1}</strong>
+            </section>
+            <section className="card-attribute">
+              <span>Defesa</span>
+              <div> </div>
+              <strong data-testid="attr2-card">{cardAttr2}</strong>
+            </section>
+            <section className="card-attribute">
+              <span>Especial</span>
+              <div> </div>
+              <strong data-testid="attr3-card">{cardAttr3}</strong>
+            </section>
+          </section>
         </section>
-
       </section>
     );
   }

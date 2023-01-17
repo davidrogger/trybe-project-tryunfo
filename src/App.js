@@ -1,8 +1,11 @@
 import React from 'react';
 import './Styles.css';
 import Form from './components/Form';
+import Preview from './components/PreviewCard';
 import Card from './components/Card';
 import Search from './components/Search';
+
+import deckDefault from './assets/default-cards';
 
 class App extends React.Component {
   constructor() {
@@ -20,13 +23,13 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
-      savedCards: [],
+      savedCards: [...deckDefault],
       excludeButton: false,
       cardLibrary: '',
       rareFilter: 'todas',
@@ -53,7 +56,12 @@ class App extends React.Component {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const textResult = this.textValidation([cardName, cardDescription, cardImage]);
-    const numberResult = this.numberValidation([cardAttr1, cardAttr2, cardAttr3]);
+    const minAttrDigit = 3;
+    const isAllAttrFilled = cardAttr1.length + cardAttr2.length + cardAttr3.length
+    >= minAttrDigit;
+    const numberResult = isAllAttrFilled
+      ? this.numberValidation([cardAttr1, cardAttr2, cardAttr3])
+      : false;
 
     this.setState({
       isSaveButtonDisabled: !(textResult && numberResult),
@@ -80,9 +88,9 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       isSaveButtonDisabled: true,
       cardTrunfo: false,
     });
@@ -91,23 +99,14 @@ class App extends React.Component {
   saveCard(event) {
     event.preventDefault();
     const { cardName, cardDescription, cardRare, cardImage, cardAttr1, cardAttr2,
-      cardAttr3, cardTrunfo,
+      cardAttr3, cardTrunfo, hasTrunfo,
     } = this.state;
 
-    // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo, gero um número aleatório, converto para hexa, e elimino os 2 primeiros dígitos, que seriam 0 e o .
+    // Solucação encontrada no slackoverflow, usuário Fabio montefuscolo,
+    // gero um número aleatório, converto para hexa, e elimino os 2 primeiros
+    // dígitos, que seriam 0 e o .
     const hexa = 16;
     const newId = Math.random().toString(hexa).slice(2);
-
-    // Minha solução não foi aceita pelo lint.
-    // const idMax = 1000;
-    // let newId;
-
-    // let notRepetedNumber = false;
-
-    // while (!notRepetedNumber) {
-    //   newId = Math.floor(Math.random() * idMax);
-    //   if (savedCards.every((card) => card.id !== newId)) notRepetedNumber = true;
-    // }
 
     const card = {
       newId,
@@ -121,9 +120,11 @@ class App extends React.Component {
       cardTrunfo,
     };
 
+    const trunfoUpdate = hasTrunfo ? true : cardTrunfo;
+
     this.setState((prevState) => ({
       savedCards: [...prevState.savedCards, card],
-      hasTrunfo: cardTrunfo,
+      hasTrunfo: trunfoUpdate,
     }));
 
     this.resetState();
@@ -173,7 +174,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className="cardCreation">
+        <div className="display-container">
           <Form
             cardName={ cardName }
             cardDescription={ cardDescription }
@@ -189,7 +190,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.saveCard }
           />
 
-          <Card
+          <Preview
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -201,39 +202,43 @@ class App extends React.Component {
             excludeButton={ excludeButton }
           />
         </div>
-        <div className="displayCards">
-          <div className="cardsFilter">
+        <div className="display-container mid-container">
+          <div className="cards-container">
             <Search
               stateUpdate={ this.stateUpdate }
               rareFilter={ rareFilter }
               trunfoFilter={ trunfoFilter }
             />
           </div>
-          <div className="cardsLibrary">
-            {cardFiltered.map((card) => (
-              <div className="eachCard" key={ card.newId }>
-                <Card
-                  key={ card.newId }
-                  cardName={ card.cardName }
-                  cardDescription={ card.cardDescription }
-                  cardAttr1={ card.cardAttr1 }
-                  cardAttr2={ card.cardAttr2 }
-                  cardAttr3={ card.cardAttr3 }
-                  cardImage={ card.cardImage }
-                  cardRare={ card.cardRare }
-                  cardTrunfo={ card.cardTrunfo }
-                  excludeButton={ card.excludeButton }
-                />
-                <button
-                  type="button"
-                  data-testid="delete-button"
-                  onClick={ () => this.deleteCard(card.newId) }
-                >
-                  Excluir
-                </button>
-              </div>
-            ))}
-          </div>
+          <section className="preview-cards">
+            <h1 className="title-primary">Cartas</h1>
+            <div className="cards-library">
+              {cardFiltered.map((card) => (
+                <div className="card-library" key={ card.newId }>
+                  <Card
+                    key={ card.newId }
+                    cardName={ card.cardName }
+                    cardDescription={ card.cardDescription }
+                    cardAttr1={ card.cardAttr1 }
+                    cardAttr2={ card.cardAttr2 }
+                    cardAttr3={ card.cardAttr3 }
+                    cardImage={ card.cardImage }
+                    cardRare={ card.cardRare }
+                    cardTrunfo={ card.cardTrunfo }
+                    excludeButton={ card.excludeButton }
+                  />
+                  <button
+                    className="card-delete-btn"
+                    type="button"
+                    data-testid="delete-button"
+                    onClick={ () => this.deleteCard(card.newId) }
+                  >
+                    Excluir
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     );
