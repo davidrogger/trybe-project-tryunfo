@@ -33,4 +33,15 @@ export default [
     cardDescription: 'É uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.',
     cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/html_avatar.webp?raw=true',
   },
+  {
+    newId: '4',
+    cardName: 'GitHub',
+    cardRare: 'raro',
+    cardTrunfo: false,
+    cardAttr1: '99',
+    cardAttr2: '99',
+    cardAttr3: '99',
+    cardDescription: 'Serviço baseado em nuvem que hospeda um sistema de controle de versão (VCS) chamado Git. Ele permite que os desenvolvedores colaborem e façam mudanças em projetos compartilhados enquanto mantêm um registro detalhado do seu progresso.',
+    cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/github_avatar.webp?raw=true',
+  },
 ];
