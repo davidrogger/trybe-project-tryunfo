@@ -77,4 +77,15 @@ export default [
     cardDescription: 'Ferramenta de virtualização, que permite criar, gerenciar e executar contêineres. São máquinas virtuais leves, que possuem todas as dependências e configurações necessárias para rodar uma aplicação.',
     cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/docker_avatar.webp?raw=true',
   },
+  {
+    newId: '8',
+    cardName: 'Node.js',
+    cardRare: 'raro',
+    cardTrunfo: false,
+    cardAttr1: '99',
+    cardAttr2: '99',
+    cardAttr3: '99',
+    cardDescription: 'Um ambiente de execução Javascript que permite rodar códigos escritos em Javascript no lado do servidor. Permite desenvolvimento de aplicações web completas usando somente Javascript.',
+    cardImage: 'https://github.com/davidrogger/trybe-project-tryunfo/blob/readme-update/imgs/nodejs_avatar.webp?raw=true',
+  },
 ];
