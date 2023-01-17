@@ -42,7 +42,18 @@
 ### Requisitos
 *Nome* | *Avaliação*
 --- | :---:
-1 - lore | :heavy_check_mark:
+1 - Crie o formulário que será usado para adicionar cartas ao baralho | :heavy_check_mark:
+2 - Adicione as props necessárias ao componente de formulário | :heavy_check_mark:
+3 - Crie e renderize o componente Card com as props necessárias | :heavy_check_mark:
+4 - Crie o preview da carta que está sendo criada pelo formulário | :heavy_check_mark:
+5 - Faça a validação do botão de Salvar no formulário | :heavy_check_mark:
+6 - Crie a função do botão salvar | :heavy_check_mark:
+7 - Crie a validação do Super Trunfo | :heavy_check_mark:
+8 - Exiba a lista de cartas que estão salvas no estado | :heavy_check_mark:
+9 - Crie um botão para remover uma carta do baralho | :heavy_check_mark:
+10 - Crie o filtro pelo nome da carta | :heavy_check_mark:
+11 - Crie o filtro por raridade da carta | :heavy_check_mark:
+12 - Crie o filtro de Super Trunfo | :heavy_check_mark:
 
 
 
