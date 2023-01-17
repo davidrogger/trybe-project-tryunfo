@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/trybe-project-tryunfo/static/css/main.eb93d2d0.css",
+    "main.js": "/trybe-project-tryunfo/static/js/main.c078ac5d.js",
+    "index.html": "/trybe-project-tryunfo/index.html",
+    "main.eb93d2d0.css.map": "/trybe-project-tryunfo/static/css/main.eb93d2d0.css.map",
+    "main.c078ac5d.js.map": "/trybe-project-tryunfo/static/js/main.c078ac5d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb93d2d0.css",
+    "static/js/main.c078ac5d.js"
+  ]
+}
